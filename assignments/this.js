@@ -17,11 +17,25 @@ let printThis = function() {
 printThis();
 // Principle 2
 // code example for Implicit Binding
+let implicitContext = {
+  message: "I am calling a 'method || function' with 'this' keyword",
+  printThis: function() {
+    console.log(this.message);
+  }
+};
+implicitContext.printThis();
 
 // Principle 3
-
 // code example for New Binding
+let explicitContext = {
+  message: "Calling 'this'explicity"
+};
+printThis.call(explicitContext);
 
 // Principle 4
-
 // code example for Explicit Binding
+function Person() {
+  this.age = 24;
+}
+const borja = new Person();
+console.log(borja.age);
